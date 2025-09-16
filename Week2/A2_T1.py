@@ -1,0 +1,8 @@
+print("Program starting.")
+Name = input("What is your name: ")
+Number1 = float(input("Enter a floating point number: "))
+Number2 = float(input("Enter second floating point number: "))
+print(Name, "you gave numbers", (Number1), "and", (Number2))
+Product = (Number1 * Number2)
+print("Multiplying first and second number will result in product", (round(Product, 2)))
+print("Program ending.")
