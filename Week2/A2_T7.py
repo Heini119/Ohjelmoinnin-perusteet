@@ -1,0 +1,5 @@
+print("Program starting.")
+Fahr = int(input("Insert fahrenheits: "))
+Celc = ((Fahr - 32) / 1.8)
+print(float(Fahr),"F is", float(Celc), "C")
+print("Program ending.")
