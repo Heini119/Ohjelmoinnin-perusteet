@@ -31,29 +31,20 @@ if (ChoiceO == "1"):
         print()
         print("Program ending.")
 elif (ChoiceO == "2"):
+    print("Using one multi-branched decision structure.")
     if Integer >= 400:
-        Sum = (Integer + 44)
-        print("Using multiple independent if-statements structure.")
-        print(f"Result is {Sum}")
-        print()
-        print("Program ending.")
+        Integer += 44
     if Integer >= 200:
-        Sum = (Integer + 22)
-        print("Using one multi-branched decision structure.")
-        print(f"Result is {Sum}")
-        print()
-        print("Program ending.")
+        Integer +=22
     if Integer >= 100:
-        Sum = (Integer + 11)
-        print("Using one multi-branched decision structure.")
-        print(f"Result is {Sum}")
-        print()
-        print("Program ending.")
+        Integer += 11
+    print(f"Result is {Integer}")   
+  
 elif (ChoiceO == "0"):
     print("Exiting...")
     print()
     print("Program ending.")
 else:
     print("Unknown option.")
-    print()
-    print("Program ending.")
+print()
+print("Program ending.")
