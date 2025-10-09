@@ -10,11 +10,11 @@ while True:
 
 total_words = len(words)
 total_characters = sum(len(Word) for Word in words)
-
-print("\nYou inserted:")
+print()
+print("You inserted:")
 print(f"- {total_words} words")
 print(f"- {total_characters} characters")
-
-print("\nProgram ending.")
+print()
+print("Program ending.")
 
     

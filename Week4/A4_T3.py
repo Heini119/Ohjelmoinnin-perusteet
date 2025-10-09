@@ -6,3 +6,6 @@ print("Starting while-loop:")
 while Start <= Stop:
     print(Start, end=" ")
     Start += 1
+print()
+print()
+print("Program ending.")
