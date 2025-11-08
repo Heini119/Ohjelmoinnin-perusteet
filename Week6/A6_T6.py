@@ -1,3 +1,6 @@
+LOWER_ALPHABETS = "abcdefghijklmnopqrstuvwxyz"
+UPPER_ALPHABETS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
 def writeFile(Filename: str, Content: str):
     try:
         with open(Filename, 'w', encoding='UTF-8') as file:
@@ -17,19 +20,40 @@ def askRows() -> str:
     return "\n".join(lines)
 
 def shiftCharacter(char, shift):
+   
+    if isinstance(shift, str):
+        alphabet = shift
+        half = len(alphabet) // 2
+        
+        if char in alphabet:
+            idx = alphabet.index(char)
+            return alphabet[(idx + half) % len(alphabet)]
+        
+        lower_alphabet = alphabet.lower()
+        if char.lower() in lower_alphabet:
+            idx = lower_alphabet.index(char.lower())
+            res = lower_alphabet[(idx + half) % len(lower_alphabet)]
+            return res.upper() if char.isupper() else res
+        return char
+
+  
+    try:
+        shift_amount = int(shift)
+    except (TypeError, ValueError):
+        
+        return char
+
     if char.isalpha():
         base = ord('A') if char.isupper() else ord('a')
-        return chr((ord(char) - base + shift) % 26 + base)
+        return chr((ord(char) - base + shift_amount) % 26 + base)
     else:
         return char
 
 def rot13(Content: str) -> str:
     result = ""
     for char in Content:
-        if char.islower():
-            result += shiftCharacter(char, "abcdefghijklmnopqrstuvwxyz")
-        elif char.isupper():
-            result += shiftCharacter(char, "ABCDEFGHIJKLMNOPQRSTUVWXYZ")
+        if char.isalpha():
+            result += shiftCharacter(char, 13)
         else:
             result += char
     return result
@@ -37,7 +61,6 @@ def rot13(Content: str) -> str:
 def main():
     print("Program starting.\n")
 
-    LOWER_ALPHABETS = "abcdefghijklmnopqrstuvwxyz"
     plain_text = askRows()
     ciphered_text = rot13(plain_text)
     
@@ -55,3 +78,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
